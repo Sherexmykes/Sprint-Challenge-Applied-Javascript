@@ -1,0 +1,15 @@
+
+What is the DOM?
+The DOM is the Docoment Object Model.  It is the respresentation of the HTML. It is a bridge between the HTML and the website on the browser.  Everything in the DOM is stored in nodes. These nodes can be manipulated via Javascript.
+
+What is an event?
+Any interaction with a webpage is an event. An example of ths would be scrolling, mouse clicks, or moving the mouse around. It is the interaction between the webpage and the user.
+
+What is an event listener?
+An event listner is a function that waits for the action to be committed. It triggers a callback function for response.
+
+Why would we convert a NodeList into an Array?
+A node list is sort of like an array.  Converting a node list to an array makes it possible for us to use array methods on tht NodeList.
+
+What is a component?
+When I think of compenents I think of Legos. They are building blocks that are resuable. As developers we are able to grab/get components or elements we need and maniupulate them as a group or indivdually.
