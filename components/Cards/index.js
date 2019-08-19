@@ -17,3 +17,87 @@
 // </div>
 //
 // Create a card for each of the articles and add the card to the DOM.
+
+axios.get('https://lambda-times-backend.herokuapp.com/articles')
+.then( data => {
+console.log('The Cards API is working Correctly', data);
+const articles = data.data.articles;
+const Cards = document.querySelector('.cards-container');
+console.log(articles);
+
+articles.bootstrap.forEach(card => {
+Cards.appendChild(createCard(card.headline, card.authorPhoto, card.authorName));
+
+})
+
+articles.javascript.forEach(card => {
+Cards.appendChild(createCard(card.headline, card.authorPhoto, card.authorName));
+
+})
+
+articles.jquery.forEach(card => {
+Cards.appendChild(createCard(card.headline, card.authorPhoto, card.authorName));
+
+})
+
+articles.node.forEach(card => {
+Cards.appendChild(createCard(card.headline, card.authorPhoto, card.authorName));
+
+})
+
+articles.technology.forEach(card => {
+Cards.appendChild(createCard(card.headline, card.authorPhoto, card.authorName));
+
+})
+})
+.catch( error => {
+console.log("Error", error);
+})
+
+
+
+
+function createCard(articleHeadline, authorImg, nameOfAuthor) {
+
+
+const newCard = document.createElement('div');
+const headline = document.createElement('div');
+const author = document.createElement('div');
+const imgContainer = document.createElement('div');
+const authorImage = document.createElement('img');
+const byauthor = document.createElement('span');
+
+newCard.classList.add('card');
+headline.classList.add('headline');
+author.classList.add('author');
+imgContainer.classList.add('img-container');
+
+headline.textContent = articleHeadline;
+author.textContent = nameOfAuthor;
+authorImage.src = authorImg;
+console.log(authorImg);
+
+newCard.appendChild(headline);
+newCard.appendChild(author);
+author.appendChild(imgContainer);
+imgContainer.appendChild(authorImage);
+author.appendChild(byauthor);
+
+
+return newCard;
+} 
+
+
+axios.get('https://lambda-times-backend.herokuapp.com/articles') 
+    .then((response) => { 
+        console.log(response);
+        response.data.articles.javascript.forEach(article => CreateCard(article));
+        response.data.articles.bootstrap.forEach(article => CreateCard(article));
+        response.data.articles.jquery.forEach(article => CreateCard(article));
+        response.data.articles.node.forEach(article => CreateCard(article));
+        response.data.articles.technology.forEach(article => CreateCard(article));
+    })
+
+    .catch((err) => { 
+        console.log(err) 
+    }) 
